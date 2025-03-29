@@ -1,8 +1,5 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react"
 
-// const CLOUD_NAME = "cuvette-final-eve-project"
-// const UPLOAD_PRESET = "cuvette-client-side-preset"
-
 const CLOUD_NAME = import.meta.env.VITE_APP_CLOUD_NAME
 const UPLOAD_PRESET = import.meta.env.VITE_APP_UPLOAD_PRESET
 

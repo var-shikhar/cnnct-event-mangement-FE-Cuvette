@@ -22,7 +22,7 @@ const useSignIn = () => {
 
   const handleUpdate = (
     name: string,
-    value: string | boolean | File | null,
+    value: string | boolean | string[] | null,
     error: string | null
   ) => {
     setFormData((prev) => ({ ...prev, [name]: value }))
