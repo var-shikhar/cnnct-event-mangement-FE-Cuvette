@@ -44,6 +44,7 @@ const useSignIn = () => {
         return
       }
 
+      // Dispatch the login request using RTK Query
       await dispatch(
         loginUser({ email: formData.email, password: formData.password })
       ).unwrap()
@@ -55,6 +56,7 @@ const useSignIn = () => {
     }
   }
 
+  // Form Elements for Sign In Form (using Dynamic Form Generator)
   const SIGN_IN_FORM_ELEMENTS: FormGeneratorProps[] = [
     {
       inputType: "input",

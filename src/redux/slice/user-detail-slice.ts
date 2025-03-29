@@ -30,10 +30,13 @@ const userDetailAPI = createApi({
   reducerPath: "userDetail",
   tagTypes: ["UserDetail", "UserAvailability"],
   endpoints: (builder) => ({
+    // Get Users Detail
     getUserDetail: builder.query<TUserSetting, void>({
       query: () => ROUTES.UserDetailRoute,
       providesTags: ["UserDetail"],
     }),
+
+    // Get Users Availability
     getUserAvailability: builder.query<TUserAvailability, void>({
       query: () => ROUTES.UserAvailability,
       providesTags: ["UserAvailability"],

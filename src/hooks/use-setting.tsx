@@ -19,10 +19,9 @@ const useSetting = () => {
     phone: "Phone is required",
   })
 
+  // Set the initial state based on the user details and update the form errors state
   useEffect(() => {
     if (data) setFormData(data)
-
-    // Store error only if it exists, otherwise remove it
     setFormErrors((prev) => {
       const updatedErrors = { ...prev }
       if (data?.firstName) delete updatedErrors.firstName
@@ -33,6 +32,7 @@ const useSetting = () => {
     })
   }, [data])
 
+  // Handle Update Profile and Update Form Errors
   const handleUpdate = (
     name: string,
     value: string | boolean | string[] | null,
@@ -49,6 +49,7 @@ const useSetting = () => {
     })
   }
 
+  // Handle Update Profile using RTK Query
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     try {
       event.preventDefault()
@@ -64,6 +65,7 @@ const useSetting = () => {
     }
   }
 
+  // Form Elements for Setting Form (using Dynamic Form Generator)
   const SETTING_FORM_ELEMENTS: FormGeneratorProps[] = [
     {
       inputType: "input",

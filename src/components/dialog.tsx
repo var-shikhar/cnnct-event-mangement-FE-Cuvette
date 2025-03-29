@@ -14,6 +14,7 @@ type TModalProps = {
   hasFooter?: boolean
 }
 
+// Modal Component
 const Modal = ({
   open,
   onClose,

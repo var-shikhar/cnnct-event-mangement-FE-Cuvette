@@ -9,6 +9,8 @@ type TElements = {
   mode?: "Auth" | "Private"
 }
 
+// Common Auth Wrapper for all pages (To Navigate Pages based on certain conditions)
+
 const AuthWrapper = ({ element, mode }: TElements) => {
   const location = useLocation()
   const dispatch = useDispatch<AppDispatch>()

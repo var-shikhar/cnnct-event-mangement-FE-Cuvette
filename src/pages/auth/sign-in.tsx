@@ -7,7 +7,9 @@ import useSignIn from "../../hooks/auth/use-sign-in"
 const SignIn = () => {
   const { SIGN_IN_FORM_ELEMENTS, formErrors, handleSubmit } = useSignIn()
   return (
+    // Common Auth Wrapper for all pages (Auth Once Only)
     <AuthWrapper title="Sign IN">
+      {/* Form using Dynamic Form Generator */}
       <form onSubmit={handleSubmit}>
         {SIGN_IN_FORM_ELEMENTS?.map((item) => (
           <FormGenerator

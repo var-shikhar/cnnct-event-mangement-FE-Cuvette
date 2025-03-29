@@ -59,14 +59,20 @@ const prefList = [
     name: "Marketing",
     icon: MARKETINGICN,
   },
-]
+] as const
 
 const usePreferences = () => {
   const navigate = useNavigate()
+
+  // Dispatch Function to dispatch the preferences
   const dispatch = useDispatch<AppDispatch>()
+
+  // Default Form Data
   const [formData, setFormData] = useState<TPreferencesForm>(
     {} as TPreferencesForm
   )
+
+  // Form Errors
   const [formErrors, setFormErrors] = useState<Record<string, string>>({
     userName: "User Name is required",
     prefList: "Select atleast one preference",
@@ -96,6 +102,7 @@ const usePreferences = () => {
         return
       }
 
+      // Dispatch the preferences BE request using RTK Query
       await dispatch(
         setupPreferences({
           userName: formData.userName,
@@ -114,11 +121,9 @@ const usePreferences = () => {
       const tempPrefList = [...(prev?.prefList ?? [])]
       const index = tempPrefList.indexOf(name)
 
-      if (index === -1) {
-        tempPrefList.push(name)
-      } else {
-        tempPrefList.splice(index, 1)
-      }
+      // Add or remove the preference from the list
+      if (index === -1) tempPrefList.push(name)
+      else tempPrefList.splice(index, 1)
 
       // Validate immediately and update formErrors
       setFormErrors((prevErrors) => {

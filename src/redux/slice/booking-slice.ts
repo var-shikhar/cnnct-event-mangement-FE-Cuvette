@@ -22,6 +22,7 @@ const bookingAPI = createApi({
   reducerPath: "booking",
   tagTypes: ["BookingList"],
   endpoints: (builder) => ({
+    // Get Booking List
     getBookingList: builder.query<TBookingList[], string>({
       query: (status) => `${ROUTES.BookingRoute}?status=${status}`,
       forceRefetch({ currentArg, previousArg }) {

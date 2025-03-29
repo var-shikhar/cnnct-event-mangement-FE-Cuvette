@@ -16,6 +16,7 @@ const useEvent = () => {
     limit: 10,
     page: page,
   })
+
   // Handle Event Status Toggle
   const handleToggleEvent = async (id: string) => {
     try {

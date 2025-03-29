@@ -24,6 +24,7 @@ const AvailabilityForm = () => {
       <CommonHeader />
       <div className="availability-content">
         <div>Weekly hours</div>
+        {/* Set the Availability Dyanmic Form */}
         <div className="availability-selector">
           {Object.entries(availability).map(([day, data]) => (
             <div key={day} className="day-row">

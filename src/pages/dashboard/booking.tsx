@@ -122,6 +122,8 @@ const BookingPage = () => {
                       Click to see participants list
                     </div>
                   </div>
+
+                  {/* Participants List Only opens for the selected booking */}
                   {openParticipantsFor === item.id && (
                     <div className="booking_participants-list">
                       <div className="booking_participants-list-header">

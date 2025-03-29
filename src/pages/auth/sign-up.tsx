@@ -7,6 +7,7 @@ const SignUp = () => {
   const { SIGN_UP_FORM_ELEMENTS, formErrors, handleSubmit } = useSignUP()
   return (
     <AuthWrapper title="Sign UP" sideLink="sign-in" sideText="Sign in instead">
+      {/* Form using Dynamic Form Generator */}
       <form onSubmit={handleSubmit}>
         {SIGN_UP_FORM_ELEMENTS?.map((item) => (
           <FormGenerator

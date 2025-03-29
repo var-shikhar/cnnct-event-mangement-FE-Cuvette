@@ -15,6 +15,7 @@ const EventCalendar = () => {
   } = useCalendar()
   return (
     <div className="card calendar_wrapper">
+      {/* Common Header for the Calendar */}
       <CommonHeader />
       <Calendar
         localizer={localizer}

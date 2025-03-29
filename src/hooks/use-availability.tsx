@@ -15,13 +15,14 @@ const useAvailability = () => {
     {} as TUserAvailability
   )
 
+  // Set the initial state based on the availability data
   useEffect(() => {
     if (data) {
       setAvailability(data)
     }
   }, [data])
 
-  //   Toggle Availability
+  //   Toggle Availability with the initial state for the day
   const toggleDay = (day: TDays) => {
     setAvailability((prev) => ({
       ...prev,

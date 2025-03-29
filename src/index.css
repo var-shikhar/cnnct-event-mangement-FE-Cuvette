@@ -381,16 +381,6 @@ input[type="time"]::-ms-reveal {
   margin-left: auto;
 }
 
-@media (max-width: 768px) {
-  .setting-form-wrapper {
-    max-width: 90%;
-  }
-
-  .card {
-    padding: 1rem;
-  }
-}
-
 /* Event Form CSS */
 .event-form-title {
   border-bottom: 1px solid var(--muted-background);
@@ -607,22 +597,6 @@ input[type="time"]::-ms-reveal {
   background: var(--secondary-color);
 }
 
-@media (max-width: 768px) {
-  .custom-form-input-classes {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-
-  .custom-form-input-classes .input-wrapper,
-  .custom-form-input-classes input,
-  .custom-form-input-classes textarea,
-  .image-upload-container,
-  .custom-email-input-wrapper {
-    width: 100%;
-    max-width: 100%;
-  }
-}
-
 /* Event Page CSS */
 .event-card-wrapper {
   display: grid;
@@ -746,16 +720,6 @@ input[type="time"]::-ms-reveal {
   margin-bottom: 0.5rem;
 }
 
-@media (max-width: 768px) {
-  .landing_header-wrapper button {
-    padding: 0.3rem 1rem;
-  }
-
-  .landing_heading {
-    font-size: 1.5rem;
-  }
-}
-
 /* Error Page */
 .error-page {
   width: 100%;
@@ -769,4 +733,39 @@ input[type="time"]::-ms-reveal {
 
 .error-page a {
   text-decoration: none;
+}
+
+@media (max-width: 768px) {
+  /* Landing Pages */
+  .landing_header-wrapper button {
+    padding: 0.3rem 1rem;
+  }
+
+  .landing_heading {
+    font-size: 1.5rem;
+  }
+
+  /* Setting Page */
+  .setting-form-wrapper {
+    max-width: 90%;
+  }
+
+  .card {
+    padding: 1rem;
+  }
+
+  /* Custom Form Input Classes */
+  .custom-form-input-classes {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .custom-form-input-classes .input-wrapper,
+  .custom-form-input-classes input,
+  .custom-form-input-classes textarea,
+  .image-upload-container,
+  .custom-email-input-wrapper {
+    width: 100%;
+    max-width: 100%;
+  }
 }

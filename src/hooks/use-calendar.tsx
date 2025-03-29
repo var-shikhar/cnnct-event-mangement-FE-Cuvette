@@ -17,6 +17,7 @@ const useCalendar = () => {
   const [currentView, setCurrentView] = useState<View>("month")
   const [currentDate, setCurrentDate] = useState<Date>(new Date())
 
+  // Set the initial state based on the booking list using RTK Query
   useEffect(() => {
     if (bookingList) {
       const fitleredList = bookingList?.map((event) => {

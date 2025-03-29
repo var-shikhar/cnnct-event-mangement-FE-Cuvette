@@ -5,6 +5,7 @@ import {
 } from "../redux/slice/booking-slice"
 import { showToast } from "../lib/utils"
 
+// Booking Nav Tab List
 const navTabList = [
   {
     id: "1",
@@ -37,6 +38,7 @@ const useBooking = () => {
     refetchOnMountOrArgChange: true,
   })
 
+  // Reference to toggle the participants list on click
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
       if (
@@ -53,10 +55,12 @@ const useBooking = () => {
     }
   }, [])
 
+  // Handle Active Tab
   const handleActiveTab = (slug: string) => {
     setActiveTab(slug)
   }
 
+  // Handle Booking Status using RTK Query
   const handleBookingStatus = async (
     id: string,
     status: "accepted" | "rejected"

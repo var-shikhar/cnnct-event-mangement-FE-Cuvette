@@ -44,6 +44,7 @@ const useSignUP = () => {
     })
   }
 
+  // Form Elements for Sign Up Form (using Dynamic Form Generator)
   const SIGN_UP_FORM_ELEMENTS: FormGeneratorProps[] = [
     {
       inputType: "input",
@@ -162,6 +163,7 @@ const useSignUP = () => {
         return
       }
 
+      // Dispatch the signup request using RTK Query
       await dispatch(
         signupUser({
           firstName: formData.firstName,

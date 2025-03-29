@@ -15,6 +15,7 @@ import Button from "./button"
 import "./css/aside.css"
 import LogoWrapper from "./logo-wrapper"
 
+// Aside List as Const
 const ASIDE_LIST = [
   {
     id: 1,
@@ -51,7 +52,7 @@ const ASIDE_LIST = [
     icon: PLUSICON,
     isButton: true,
   },
-]
+] as const
 
 const Aside = () => {
   const dispatch = useDispatch<AppDispatch>()
@@ -61,7 +62,6 @@ const Aside = () => {
   // Set the initial state based on the window width
   useEffect(() => {
     const mediaQuery = window.matchMedia("(max-width: 768px)")
-
     const handleChange = (e: MediaQueryListEvent) => {
       setIsMobile(e.matches)
     }
@@ -72,6 +72,7 @@ const Aside = () => {
     return () => mediaQuery.removeEventListener("change", handleChange)
   }, [])
 
+  // Handle User Logout Dispatch Function
   const handleDelete = useCallback(() => {
     dispatch(logoutUser())
   }, [])

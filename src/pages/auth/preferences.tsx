@@ -13,7 +13,9 @@ const Preferences = () => {
     formData,
   } = usePreferences()
   return (
+    // Common Auth Wrapper for all pages (Auth Once Only)
     <AuthWrapper title="Your Preferences" hasbottomLine={false}>
+      {/* Form using Dynamic Form Generator */}
       <form onSubmit={handleSubmit}>
         <FormGenerator
           inputType={"input"}

@@ -20,19 +20,16 @@
   border: 2px solid;
 }
 
-/* Small Button */
 .btn-sm {
   padding: 0.4em 0.8em;
   font-size: 0.85em;
 }
 
-/* Medium Button */
 .btn-md {
   padding: 0.6em 1.2em;
   font-size: 1em;
 }
 
-/* Large Button */
 .btn-lg {
   padding: 0.8em 1.5em;
   font-size: 1.2em;

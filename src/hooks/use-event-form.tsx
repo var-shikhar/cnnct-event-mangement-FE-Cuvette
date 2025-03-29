@@ -63,12 +63,12 @@ const useEventForm = ({ editMode = false, eventId = "" }: Props) => {
   const [participantList, setParticipantList] = useState(participants ?? [])
   const [formErrors, setFormErrors] = useState<TEventErrorType>(initialErrors)
 
+  // Redirect to Events Page if Edit Mode and Event ID is not provided
   useEffect(() => {
-    if (editMode && eventId === "") {
-      navigate("/dashboard/events")
-    }
+    if (editMode && eventId === "") navigate("/dashboard/events")
   }, [editMode, eventId, navigate])
 
+  // Set the initial state based on the event details and update the form errors state
   useEffect(() => {
     if (eventDetails) {
       setFormData(eventDetails)
@@ -95,6 +95,7 @@ const useEventForm = ({ editMode = false, eventId = "" }: Props) => {
     }
   }, [eventDetails])
 
+  // Set the initial state based on the participants list
   useEffect(() => {
     if (Array.isArray(participants) && participants.length > 0)
       setParticipantList(participants)
@@ -122,6 +123,7 @@ const useEventForm = ({ editMode = false, eventId = "" }: Props) => {
     })
   }
 
+  // Form Elements for Event Form (using Dynamic Form Generator)
   const EVENT_FORM_ELEMENTS: Omit<FormGeneratorProps, "onUpdate">[] = [
     {
       inputType: "input",
@@ -241,7 +243,7 @@ const useEventForm = ({ editMode = false, eventId = "" }: Props) => {
     navigate("/dashboard/events")
   }
 
-  //   Submit the Event Form
+  //   Submit the Event Form using RTK Query
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     try {
       event.preventDefault()

@@ -26,12 +26,14 @@ const EventForm = ({
     isUpdating,
     isLoading,
     EVENT_FORM_PART2_ELEMENTS,
+    setToggleScreen,
   } = useEventForm({ editMode, eventId })
 
   return (
     <>
       <form onSubmit={handleSubmit}>
         <div className="event-form-wrapper">
+          {/* Form Part A */}
           {toggleScreen ? (
             <>
               {EVENT_FORM_ELEMENTS?.map((item) => (
@@ -146,6 +148,7 @@ const EventForm = ({
               </div>
             </>
           ) : (
+            // Form Part B
             <div>
               {EVENT_FORM_PART2_ELEMENTS?.map((item) => (
                 <FormGenerator
@@ -179,6 +182,13 @@ const EventForm = ({
                   color="secondary"
                 >
                   Cancel
+                </Button>
+                <Button
+                  type="button"
+                  onClick={() => setToggleScreen(!toggleScreen)}
+                  color="secondary"
+                >
+                  Back
                 </Button>
                 <Button
                   type="submit"

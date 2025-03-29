@@ -4,6 +4,7 @@ import { toast, ToastIcon } from "react-toastify"
 import SUCCESSICON from "../assets/toast_check.svg"
 import WARNINGICON from "../assets/toast_warning.svg"
 
+// Function to handle session logout
 export function sessionLogout(hasToast = true) {
   Cookies.remove("access_token")
   Cookies.remove("refresh_token")
@@ -12,6 +13,7 @@ export function sessionLogout(hasToast = true) {
   window.location.href = "/auth/sign-in"
 }
 
+// Function to handle Toast Notifications
 type ToastType = "success" | "warning" | "error" | "info"
 export const showToast = (message: string, type: ToastType) => {
   const icons: Record<ToastType, React.ReactElement> = {

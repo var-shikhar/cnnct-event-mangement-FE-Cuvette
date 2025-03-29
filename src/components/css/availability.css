@@ -10,12 +10,6 @@
   padding: 1rem;
 }
 
-@media (max-width: 768px) {
-  .availabilit-card {
-    width: auto;
-  }
-}
-
 .availability-selector {
   display: flex;
   flex-direction: column;
@@ -98,5 +92,9 @@
   }
   .unavailable-text {
     text-align: start;
+  }
+
+  .availabilit-card {
+    width: auto;
   }
 }
