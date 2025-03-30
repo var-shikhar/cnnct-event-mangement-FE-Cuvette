@@ -76,6 +76,10 @@ CLOUDINARY_CLOUD_NAME=your_cloud_name
 CLOUDINARY_UPLOAD_PRESET=your_upload_preset
 ```
 
+### Login Credentials
+- Email: guptarohan434@gmail.com
+- Password: Admin@1234
+
 ## Contact
 
 For more details, reach out to:
