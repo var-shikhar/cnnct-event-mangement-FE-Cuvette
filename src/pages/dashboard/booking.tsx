@@ -64,7 +64,7 @@ const BookingPage = () => {
                   <small>
                     You{" "}
                     {item.participants?.length >= 2
-                      ? `and ${item.participants} others`
+                      ? `and ${item.participants.length} others`
                       : item.participants?.length > 1 &&
                         `and ${item.participants[0].name}`}
                   </small>

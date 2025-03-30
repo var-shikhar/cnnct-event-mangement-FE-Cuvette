@@ -114,9 +114,19 @@ const userSlice = createSlice({
     checkLocalStorage: (state) => {
       const storedUser = localStorage.getItem("user")
       if (storedUser) {
-        state.user = JSON.parse(storedUser)
-        state.loading = false
-        state.error = null
+        const parsedUser = JSON.parse(storedUser)
+        if (parsedUser.expiresAt && Date.now() > parsedUser.expiresAt) {
+          localStorage.removeItem("user")
+          state.user = null
+          state.loading = false
+          state.error = "Session expired. Please log in again."
+        } else {
+          // eslint-disable-next-line @typescript-eslint/no-unused-vars
+          const { expiresAt, ...userWithoutExpires } = parsedUser
+          state.user = userWithoutExpires
+          state.loading = false
+          state.error = null
+        }
       }
     },
   },
@@ -129,7 +139,11 @@ const userSlice = createSlice({
       .addCase(loginUser.fulfilled, (state, action: PayloadAction<User>) => {
         state.user = action.payload
         state.loading = false
-        localStorage.setItem("user", JSON.stringify(action.payload))
+        const expiresAt = Date.now() + 1000 * 60 * 60 * 2
+        localStorage.setItem(
+          "user",
+          JSON.stringify({ ...action.payload, expiresAt })
+        )
       })
       .addCase(loginUser.rejected, (state, action) => {
         state.loading = false

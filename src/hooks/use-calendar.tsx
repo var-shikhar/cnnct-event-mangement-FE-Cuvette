@@ -18,16 +18,15 @@ const useCalendar = () => {
   const [currentDate, setCurrentDate] = useState<Date>(new Date())
 
   // Set the initial state based on the booking list using RTK Query
+
   useEffect(() => {
     if (bookingList) {
       const fitleredList = bookingList?.map((event) => {
-        const start = new Date(event.start)
-        const end = new Date(event.end)
         return {
           id: event.id,
           title: event.title,
-          start,
-          end,
+          start: event.start,
+          end: event.end,
           status: event.status,
         }
       })
