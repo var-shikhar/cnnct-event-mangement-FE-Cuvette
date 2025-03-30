@@ -169,6 +169,8 @@
   font-size: var(--small-font-size);
 }
 
+/* Integration Section */
+
 .landing_integration-container {
   margin: 5rem auto;
 }
@@ -234,15 +236,28 @@
   .landing_testimonial-container {
     flex-wrap: nowrap;
     overflow-x: auto;
+    justify-content: flex-start;
     scroll-snap-type: x mandatory;
-    scroll-padding: 1rem;
+    scroll-padding-left: 0;
+    scroll-behavior: smooth;
+    gap: 1rem;
+    scrollbar-width: none;
+    padding: 1rem;
+    cursor: grab; /
   }
 
-  .landing_testimonial-container .testimonial {
-    min-width: calc(100% - 4rem);
-    width: calc(100% - 4rem);
-    flex: 0 0 100%;
-    scroll-snap-align: center;
+   .landing_testimonial-container::-webkit-scrollbar {
+    display: none;
+  }
+
+  .testimonial {
+    flex: 0 0 80%;
+    scroll-snap-align: start;
+    background-color: var(--white-color);
+    padding: 1.5rem;
+    border-radius: 15px;
+    min-width: calc(80% - 4rem);
+    width: calc(80% - 4rem);
   }
 
   .landing_integration-wrapper {

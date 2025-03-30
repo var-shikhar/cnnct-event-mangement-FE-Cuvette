@@ -102,6 +102,30 @@ const eventAPI = createApi({
         },
       }),
       invalidatesTags: ["EventList"],
+      async onQueryStarted(event, { dispatch, queryFulfilled }) {
+        const addResult = dispatch(
+          eventAPI.util.updateQueryData(
+            "getEventList",
+            { page: 1, limit: 15 },
+            (response) => {
+              const foundIndex = response.events.findIndex(
+                (el) => el.eventID === event
+              )
+
+              if (foundIndex !== -1) {
+                response.events[foundIndex].isActive =
+                  !response.events[foundIndex].isActive
+              }
+            }
+          )
+        )
+
+        try {
+          await queryFulfilled
+        } catch {
+          addResult.undo()
+        }
+      },
     }),
     // Delete Event
     deleteEvent: builder.mutation<{ message: string }, string>({
@@ -110,6 +134,30 @@ const eventAPI = createApi({
         method: "DELETE",
       }),
       invalidatesTags: ["EventList", "EventListForCalendar"],
+      // Optimistic Delete for the Event List
+      async onQueryStarted(event, { dispatch, queryFulfilled }) {
+        const addResult = dispatch(
+          eventAPI.util.updateQueryData(
+            "getEventList",
+            { page: 1, limit: 15 },
+            (response) => {
+              const foundIndex = response.events.findIndex(
+                (el) => el.eventID === event
+              )
+
+              if (foundIndex !== -1) {
+                response.events.splice(foundIndex, 1)
+              }
+            }
+          )
+        )
+
+        try {
+          await queryFulfilled
+        } catch {
+          addResult.undo()
+        }
+      },
     }),
     // Emitter for Getting the Details of an event
     getEventDetailById: builder.query<TEventForm, string>({

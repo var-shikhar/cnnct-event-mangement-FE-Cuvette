@@ -26,7 +26,6 @@ const EventForm = ({
     isUpdating,
     isLoading,
     EVENT_FORM_PART2_ELEMENTS,
-    setToggleScreen,
   } = useEventForm({ editMode, eventId })
 
   return (
@@ -182,13 +181,6 @@ const EventForm = ({
                   color="secondary"
                 >
                   Cancel
-                </Button>
-                <Button
-                  type="button"
-                  onClick={() => setToggleScreen(!toggleScreen)}
-                  color="secondary"
-                >
-                  Back
                 </Button>
                 <Button
                   type="submit"

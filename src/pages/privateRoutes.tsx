@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux"
 import { Navigate, useLocation } from "react-router-dom"
 import { checkLocalStorage } from "../redux/slice/user-slice"
 import { AppDispatch, RootState } from "../redux/store"
+import LoadingSpinner from "../components/spinner"
 
 type TElements = {
   element: JSX.Element
@@ -10,15 +11,18 @@ type TElements = {
 }
 
 // Common Auth Wrapper for all pages (To Navigate Pages based on certain conditions)
-
 const AuthWrapper = ({ element, mode }: TElements) => {
   const location = useLocation()
   const dispatch = useDispatch<AppDispatch>()
-  const { user } = useSelector((state: RootState) => state.user)
+  const { user, loading } = useSelector((state: RootState) => state.user)
 
   useEffect(() => {
     dispatch(checkLocalStorage())
   }, [dispatch])
+
+  if (loading) {
+    return <LoadingSpinner />
+  }
 
   // If user is logged in, restrict Auth pages (Sign In / Sign Up)
   if (mode === "Auth" && user) {

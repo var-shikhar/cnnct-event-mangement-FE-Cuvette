@@ -34,9 +34,10 @@ const useBooking = () => {
   const [activeTab, setActiveTab] = useState(navTabList[0].slug)
   const [openParticipantsFor, setOpenParticipantsFor] = useState("")
   const [toggleStatus, { isLoading }] = useToggleBookingStatusMutation()
-  const { data: bookingList } = useGetBookingListQuery(activeTab, {
-    refetchOnMountOrArgChange: true,
-  })
+  const { data: bookingList, isLoading: isDataLoading } =
+    useGetBookingListQuery(activeTab, {
+      refetchOnMountOrArgChange: true,
+    })
 
   // Reference to toggle the participants list on click
   useEffect(() => {
@@ -87,6 +88,7 @@ const useBooking = () => {
     participantsContainerRef,
     handleParticipantsClick,
     openParticipantsFor,
+    isDataLoading,
   }
 }
 

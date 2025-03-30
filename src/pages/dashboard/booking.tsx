@@ -19,6 +19,7 @@ const BookingPage = () => {
     handleParticipantsClick,
     handleBookingStatus,
     openParticipantsFor,
+    isDataLoading,
   } = useBooking()
   return (
     <>
@@ -41,7 +42,9 @@ const BookingPage = () => {
           ))}
         </div>
         <div className="booking-list-wrappper">
-          {bookingList && bookingList.length > 0 ? (
+          {isDataLoading ? (
+            <div>Loading ...</div>
+          ) : bookingList && bookingList.length > 0 ? (
             bookingList?.map((item) => (
               <div className="booking-wrapper" key={item.id}>
                 <div className="booking_date-wrappper">
