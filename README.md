@@ -1,54 +1,86 @@
-# React + TypeScript + Vite
+# CNNCT - Easy Scheduling Ahead
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Overview
 
-Currently, two official plugins are available:
+CNNCT simplifies scheduling for you and your team by eliminating the back-and-forth of setting up meetings. Set your availability, share your link, and let others book time with you instantly.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Features
 
-## Expanding the ESLint configuration
+### Event Creation & Participation
+- Users can create events and invite participants.
+- Participants can accept or reject the invitation.
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+### Availability Management
+- Users can set their availability (days & multiple time slots).
+- Before scheduling, the system checks:
+  - If the user is available at that day and time.
+  - If there are any conflicting events at the same time.
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+### Profile Management
+- Users can set and update their profile details.
+
+## Tech Stack
+
+### Frontend
+- **React**
+- **Redux Toolkit (RTK Query)**
+- **Cloudinary** (for image uploads)
+- **Vanilla CSS**
+
+### Backend
+- **Node.js/Express** (Handled in a separate repository)
+
+### Database
+- **MongoDB** (Handled in the backend)
+
+## Installation
+
+Follow these steps to set up the frontend locally:
+
+```sh
+# Clone the repository
+git clone https://github.com/var-shikhar/cnnct-event-mangement-FE-Cuvette.git
+cd cnnct-event-mangement-FE-Cuvette
+
+# Install dependencies
+npm install
+
+# Copy environment variables template and configure Cloudinary
+cp .env.example .env
+
+# Start the development server
+npm run dev
+```
+Open the app in your browser at ```http://localhost:5173```
+
+## Usage & Code Structure
+
+### Modularized Codebase
+- The project is structured to ensure better maintainability and reusability.
+- Components are designed to be reusable wherever possible.
+
+### Form Generator Component
+- Dynamically generates forms based on a JSON schema.
+- Includes built-in validation for form fields.
+
+### Calendar View
+- Uses `react-big-calendar` to display a list of scheduled events.
+- Provides an intuitive UI for managing and viewing meetings.
+
+## Environment Variables
+
+To configure Cloudinary, register at [Cloudinary](https://cloudinary.com/) and retrieve your credentials:
+
+```env
+CLOUDINARY_CLOUD_NAME=your_cloud_name
+CLOUDINARY_UPLOAD_PRESET=your_upload_preset
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## Contact
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+For more details, reach out to:
 
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
-```
+**Shikhar Varshney**  
+📧 Email: [shikharvarshney10@gmail.com](mailto:shikharvarshney10@gmail.com)
+
+
