@@ -1,3 +1,9 @@
+.logo-link {
+  cursor: pointer;
+  color: black;
+  text-decoration: none;
+}
+
 .logo-wrapper {
   display: flex;
   align-items: center;

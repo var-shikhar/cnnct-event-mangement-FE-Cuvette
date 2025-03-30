@@ -5,11 +5,11 @@
 .logo-wrapper {
   gap: 0.5rem;
   margin-bottom: 2rem;
-  padding: 0 1.25rem;
+  padding: 0 1rem;
 }
 
 .logo-wrapper span {
-  font-size: 1.35rem;
+  font-size: 1.5rem;
 }
 
 .navigation-wrapper {
